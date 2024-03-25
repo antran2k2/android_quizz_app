@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">@color/blue_300</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="magenta">#FFFF00FF</color>
+    <color name="light_gray">#FFD3D3D3</color>
+    <color name="gray">#FF808080</color>
+    <color name="dark_gray">#FFA9A9A9</color>
+    <color name="light_blue">#FFADD8E6</color>
+    <color name="light_green">#FF90EE90</color>
+    <color name="light_yellow">#FFFFFFE0</color>
+    <color name="light_red">#FFFFA07A</color>
+    <color name="light_magenta">#FFFFC0CB</color>
+    <color name="light_cyan">#FFE0FFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="grey_100"> #F5F5F5</color>
+    <color name="grey_300"> #E0E0E0</color>
+    <color name="red_100">#F4C7C3</color>
+    <color name="red_300">#E67C73</color>
+    <color name="red_500">#DB4437</color>
+    <color name="red_700">#C53929</color>
+    <color name="blue_100">#C6DAFC</color>
+    <color name="blue_300">#7BAAF7</color>
+    <color name="blue_500">#4285F4</color>
+    <color name="blue_700">#3367D6</color>
+    <color name="green_100">#B7E1CD</color>
+    <color name="green_300">#57BB8A</color>
+    <color name="green_500">#0F9D58</color>
+    <color name="green_700">#0B8043</color>
+    <color name="yellow_100">#FCE8B2</color>
+    <color name="yellow_300">#F7CB4D</color>
+    <color name="yellow_500">#F4B400</color>
+    <color name="yellow_700">#F09300</color>
+<color name="orange_500">#FFA500</color>
+    <color name="orange_700">#FF8C00</color>
+    <color name="orange_900">#FF5722</color>
+
+
+    <color name="magnolia_50">#efe5fd</color>
+    <color name="magnolia_100">#d4bff9</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_300">#4DB6AC</color>
+</resources>

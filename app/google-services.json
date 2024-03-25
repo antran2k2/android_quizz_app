@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "996437999035",
+    "project_id": "antv-mock1",
+    "storage_bucket": "antv-mock1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996437999035:android:3c29f1284fe5b62919d89e",
+        "android_client_info": {
+          "package_name": "com.antv.mock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996437999035-pqbj6f1v8k464sh63jmonj8r1drevbd6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antv.mock",
+            "certificate_hash": "5d7978610f6dc841a33844f3cae1ca9513581414"
+          }
+        },
+        {
+          "client_id": "996437999035-v5taeqk1fp68b73f3h17fqneulhsf0k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2-9QvhZcsQTHAoUFFML9GDj2cI44URNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996437999035-njbtffh6a7hp4sfeveo0b93joamlj36m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
