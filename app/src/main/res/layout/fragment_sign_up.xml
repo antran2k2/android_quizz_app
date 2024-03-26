@@ -7,14 +7,14 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.antv.mock.viewModel.SignUpViewModel" />
+            type="com.antv.mock.viewModel.AuthViewModel" />
     </data>
 
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SignUpActivity"
+        tools:context=".ui.auth.fragment.SignUpFragment"
         android:orientation="vertical"
         android:background="@color/white"
         android:backgroundTintMode="screen"
@@ -104,6 +104,7 @@
                 android:visibility="@{viewModel.isFailure ? View.VISIBLE : View.GONE}" />
 
             <Button
+                android:id="@+id/signUpButton"
                 android:layout_width="250dp"
                 android:text="@string/sign_up"
                 app:cornerRadius="0dp"
@@ -112,7 +113,6 @@
                 android:textSize="20sp"
                 android:backgroundTint="@color/primary"
                 android:layout_height="50dp"
-                android:onClick="@{() -> viewModel.handleSignUp()}"
                 />
 
 

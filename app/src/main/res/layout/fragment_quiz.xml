@@ -18,7 +18,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="8dp"
-        tools:context=".QuizActivity"
+        tools:context=".ui.home.fragment.QuizFragment"
+        android:backgroundTint="@color/primary"
+        android:background="@color/primary"
 
         >
 
@@ -89,7 +91,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
             app:layout_constraintTop_toBottomOf="@+id/questionLayout"
             tools:layout_editor_absoluteX="8dp">
 
@@ -157,22 +159,21 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonFinish"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/grey_300"
             app:cornerRadius="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/buttonNext"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/finish"
             android:textColor="@color/primary"
-            android:onClick="@{() -> quiz.onClickFinish()}"
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonNext"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/grey_300"
@@ -180,10 +181,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintStart_toEndOf="@+id/buttonFinish"
             android:text="@string/next_q"
             android:textColor="@color/primary"
-            android:onClick="@{() -> quiz.onClickNext()}"
             />
 
 

@@ -1,16 +1,18 @@
 package com.antv.mock.viewModel
 
-import android.content.Intent
+import android.content.Context
+import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
-import com.antv.mock.QuizActivity
-import com.antv.mock.ResultActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import com.antv.mock.model.Question
-import com.antv.mock.repo.QuestionRepo
+import com.antv.mock.model.Score
+import com.antv.mock.repo.impl.QuestionRepoImpl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -20,11 +22,17 @@ import kotlinx.coroutines.launch
 
 val TIME_LIMIT = 10
 
-class QuizViewModel:ViewModel() {
 
-    lateinit var context: QuizActivity
+class QuizViewModelFactory(private val context: Context): ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return QuizViewModel() as T
+    }
+}
 
-    private val questionRepo = QuestionRepo()
+class QuizViewModel: ViewModel() {
+
+
+    private val questionRepo = QuestionRepoImpl()
 
     val questions = ObservableArrayList<Question>()
 
@@ -98,12 +106,11 @@ class QuizViewModel:ViewModel() {
         timeIsUp.set(true)
         checkAnswer("")
 
-        //        onClickNext()
     }
 
 
     var index = 0
-    fun onClickNext() {
+    fun onClickNext(context: Context, navController: NavController) {
         if (!done) {
             checkAnswer("")
         }
@@ -119,7 +126,7 @@ class QuizViewModel:ViewModel() {
             index++
             startTimer()
         } else {
-            onClickFinish()
+            onClickFinish(context, navController)
         }
     }
 
@@ -138,24 +145,32 @@ class QuizViewModel:ViewModel() {
         }
     }
 
-    fun onClickFinish() {
-//        timerJob?.cancel()
+    fun onClickFinish(context: Context, navController: NavController) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context)
         builder
-            .setMessage("Congratulations!\nYou have finished the quiz.\n" +
-                    "Do you want to see the result?")
+            .setMessage(
+                "Congratulations!\nYou have finished the quiz.\n" +
+                        "Do you want to see the result?"
+            )
             .setTitle("Quiz game")
 
             .setPositiveButton("PLAY AGAIN") { dialog, which ->
                 onPlayAgain()
             }
             .setNegativeButton("SEE RESULT") { dialog, which ->
-                showResult()
-            }
+                val score = Score(countCorrect.get(),countWrong.get()) // Ví dụ với correct = 5 và wrong = 3
+                val bundle = Bundle().apply {
+                    putParcelable("score_key", score)
+                }
+                navController.navigate(
+                    com.antv.mock.R.id.action_quizFragment_to_resultFragment,
+                    bundle
+                )
 
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+            }
+            .show()
     }
+
 
     private fun onPlayAgain() {
         countCorrect.set(0)
@@ -167,13 +182,5 @@ class QuizViewModel:ViewModel() {
         timeIsUp.set(false)
         loadQuestions()
     }
-    private fun showResult() {
-        questionRepo.saveResult(countCorrect.get(), countWrong.get())
-        Intent(context, ResultActivity::class.java).also {
-            it.putExtra("correct", countCorrect.get())
-            it.putExtra("wrong", countWrong.get())
-            context.startActivity(it)
-            context.finish()
-        }
-    }
+
 }

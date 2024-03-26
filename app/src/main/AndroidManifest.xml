@@ -23,7 +23,7 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.splash.SplashScreen"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -33,10 +33,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.auth.AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.home.MainActivity"
             android:exported="true" />
     </application>
 

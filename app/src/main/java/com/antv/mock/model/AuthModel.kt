@@ -1,5 +1,5 @@
 package com.antv.mock.model
-data class SignUpModel (
+data class AuthModel (
     var email: String? = "",
     var password: String? = "",
     var confirmPassword: String? = ""

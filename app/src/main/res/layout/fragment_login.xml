@@ -7,16 +7,15 @@
         <import type="android.view.View"/>
         <variable
             name="loginViewModel"
-            type="com.antv.mock.viewModel.LoginViewModel" />
+            type="com.antv.mock.viewModel.AuthViewModel" />
     </data>
 
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity"
+        tools:context=".ui.auth.fragment.LoginFragment"
         android:orientation="vertical"
-        android:backgroundTintMode="screen"
         android:background="@color/white">
 
         <ImageView
@@ -24,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:src="@drawable/quiz_logo"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            />
 
         <LinearLayout
             android:layout_weight="4"
@@ -83,6 +83,7 @@
                 android:visibility="@{loginViewModel.isFailure ? View.VISIBLE : View.GONE}" />
 
             <Button
+                android:id="@+id/login_button"
                 android:layout_width="250dp"
                 android:text="@string/sign_in"
                 app:cornerRadius="0dp"
@@ -91,7 +92,7 @@
                 android:textSize="20sp"
                 android:backgroundTint="@color/light_gray"
                 android:layout_height="50dp"
-                android:onClick="@{() -> loginViewModel.handleLogin()}"
+
                 />
 
             <LinearLayout
@@ -124,6 +125,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/login_with_google"
                 android:layout_width="250dp"
                 app:cornerRadius="0dp"
                 android:layout_gravity="center_horizontal"
@@ -133,7 +135,6 @@
                 android:drawableLeft="@drawable/google"
                 android:text="@string/continue_with_google"
                 android:layout_height="50dp"
-                android:onClick="@{() -> loginViewModel.signInWithGoogle()}"
                 />
 
             <LinearLayout
@@ -151,6 +152,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/sign_up_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sign_up"
@@ -158,12 +160,12 @@
                     android:textStyle="italic"
                     android:lines="1"
                     android:clickable="true"
-                    android:onClick="@{() -> loginViewModel.navigateToSignUp()}"
                     android:paddingLeft="5dp"
                     android:textColor="@color/black" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/forgot_password"
                 android:layout_marginTop="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,8 +173,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textStyle="italic"
                 android:textSize="16sp"
-                android:clickable="true"
-                android:onClick="@{() -> loginViewModel.onForgotPasswordClicked()}" />
+                android:clickable="true"/>
         </LinearLayout>
 
 
