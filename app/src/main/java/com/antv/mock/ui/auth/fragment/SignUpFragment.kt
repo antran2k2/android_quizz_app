@@ -1,9 +1,7 @@
 package com.antv.mock.ui.auth.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -63,18 +61,7 @@ class SignUpFragment : Fragment() {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.d("ANTVLOG", "onOptionsItemSelected: ")
-        return when (item.itemId) {
-            android.R.id.home -> {
-                // Xử lý sự kiện khi người dùng bấm nút quay lại
-                Log.d("ANTVLOG", "onOptionsItemSelected: home")
-                requireActivity().onBackPressedDispatcher.onBackPressed()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+
     override fun onDestroyView() {
         super.onDestroyView()
 

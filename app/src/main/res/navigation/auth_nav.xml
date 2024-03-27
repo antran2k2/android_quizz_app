@@ -40,5 +40,7 @@
         tools:layout="@layout/fragment_forgot_password" />
     <activity
         android:id="@+id/home"
-        android:name="com.antv.mock.ui.home.MainActivity" />
+        android:name="com.antv.mock.ui.home.MainActivity"
+        tools:layout="@layout/activity_main"
+        />
 </navigation>

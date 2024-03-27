@@ -30,9 +30,15 @@ class LoginFragment : Fragment() {
     }
     override fun onStart() {
         super.onStart()
-        viewModel.checkCurrentUser()?.let { _ ->
-            navController.navigate(R.id.action_login_to_home)
-            activity?.finish()
+        viewModel.checkCurrentUser()
+
+        viewModel.userLiveData.apply {
+            observe(viewLifecycleOwner) { user ->
+                if (user != null) {
+                    navController.navigate(R.id.action_login_to_home)
+                    activity?.finish()
+                }
+            }
         }
 
     }
@@ -52,14 +58,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
 
-        viewModel.userLiveData.apply {
-            observe(viewLifecycleOwner) { user ->
-                if (user != null) {
-                    navController.navigate(R.id.action_login_to_home)
-                    activity?.finish()
-                }
-            }
-        }
 
 
         binding.loginButton.setOnClickListener {
